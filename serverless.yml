@@ -1,0 +1,68 @@
+service: notion-less
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: privateAws
+
+plugins:
+   - '@silvermine/serverless-plugin-cloudfront-lambda-edge'
+
+package:
+  exclude:
+    - .git/**
+    - package-lock.json
+    - package.json
+    - README.md
+    - .vsvode/**
+
+resources:
+  Resources:
+    WebsiteBucket:
+      Type: 'AWS::S3::Bucket'
+      Properties:
+         BucketName: 'notion-less.s3.amazonaws.com'
+         AccessControl: 'PublicRead'
+         WebsiteConfiguration:
+            IndexDocument: 'index.html'
+            ErrorDocument: 'error.html'
+
+    NotionAPIDistribution:
+      Type: 'AWS::CloudFront::Distribution'
+      Properties:
+         DistributionConfig:
+            DefaultCacheBehavior:
+               TargetOriginId: 'WebsiteBucketOrigin'
+               ViewerProtocolPolicy: 'redirect-to-https'
+               Compress: true
+               ForwardedValues:
+                  Headers:
+                     - 'Authorization'
+                  QueryString: false
+                  Cookies:
+                     Forward: 'none'
+            Enabled: true
+            PriceClass: 'PriceClass_All'
+            HttpVersion: 'http2'
+            ViewerCertificate:
+               CloudFrontDefaultCertificate: true
+            Origins:
+               -
+                  Id: 'WebsiteBucketOrigin'
+                  DomainName: { 'Fn::GetAtt': [ 'WebsiteBucket', 'DomainName' ] }
+                  S3OriginConfig: {}
+
+functions:
+  main:
+    handler: index.handler
+    lambdaAtEdge:
+      distribution: 'NotionAPIDistribution'
+      eventType: 'origin-request'
+
+    tags:
+      service: notion-edge-api
+      owner: maddygoround
+
+    memorySize : 1024
+    timeout: 30
+    logRetentionInDays: 2

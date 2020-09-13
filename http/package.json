@@ -1,0 +1,60 @@
+{
+  "name": "lambda-api",
+  "version": "0.10.6",
+  "description": "Lightweight web framework for your serverless applications",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "mocha --check-leaks --recursive",
+    "test-cov": "nyc --reporter=html mocha --check-leaks --recursive",
+    "test-ci": "eslint . && nyc npm test && nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremydaly/lambda-api.git"
+  },
+  "keywords": [
+    "serverless",
+    "nodejs",
+    "api",
+    "AWS Lambda",
+    "API Gateway",
+    "web framework",
+    "json",
+    "schema",
+    "open"
+  ],
+  "author": "Jeremy Daly <jeremy@jeremydaly.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremydaly/lambda-api/issues"
+  },
+  "homepage": "https://github.com/jeremydaly/lambda-api#readme",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.51",
+    "@types/node": "^10.17.21",
+    "aws-sdk": "^2.664.0",
+    "bluebird": "^3.7.2",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.1.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^14.1.1",
+    "sinon": "^4.5.0"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "index.d.ts",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">= 8.10.0"
+  }
+}

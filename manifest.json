@@ -1,0 +1,20 @@
+{
+    "apis": {
+        "endpoints": {
+            "/v1/pages/:id": {
+                "file": "api/routes/pages",
+                "middlewares": [
+                    "api/middlewares/cors",
+                    "api/middlewares/token"
+                ]
+            },
+            "/v1/tables/:id" : {
+                "file": "api/routes/tables",
+                "middlewares": [
+                    "api/middlewares/cors",
+                    "api/middlewares/token"
+                ]
+            }
+        }
+    }
+}
