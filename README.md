@@ -51,7 +51,7 @@ All public pages can be accessed without authorization. If you want to fetch pri
 To obtain your token, login to Notion and open your DevTools and find your cookies. There should be a cookie called `token_v2`, which is used for the authorization.
 
 ## Deployment
-Deployment is done using serverless. Serverless yml exists in the project directory. You serverless profile to provide aws credentails.
+Deployment is done using serverless. Serverless yml exists in the project directory. You need use serverless profile to provide aws credentails / profile.
 
 ## Routes
 Routes are written using a modified version of [jeremydaly/lambda-api](https://github.com/jeremydaly/lambda-api). The library is changed to support Lambda@edge Events.
