@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "maddygoround",
+  "repository": {
+    "url": "https://github.com/maddygoround/notionedge"
+  },
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^2.6.1"
