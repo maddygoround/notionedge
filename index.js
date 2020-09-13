@@ -12,6 +12,12 @@ for (const route in endpoints) {
     api.any(route, ...middlewaresRequired, require(`./${file}`));
 }
 
+api.any("/", () => {
+    return {
+        "error": "Route not found!",
+        "routes": Object.keys(endpoints)
+    };
+});
 
 exports.handler = async (event, context, callback) => {
     return await api.run(event, context, callback);
