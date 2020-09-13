@@ -1,4 +1,7 @@
-![NotionEdge](https://github.com/maddygoround/notionedge/blob/master/image.png)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/maddygoround/notionedge/blob/master/image.png">
+</p>
+
 ![API Version](https://badgen.net/badge/API%20Version/v1/green)
 
 A **serverless wrapper** for the private Notion API. It provides fast and easy access to your Notion content.
