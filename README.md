@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="https://github.com/maddygoround/notionedge/blob/master/image.png">
+  <img width="460" height="300" src="https://github.com/maddygoround/notionedge/blob/master/notion-logo.png">
 </p>
 
 ![API Version](https://badgen.net/badge/API%20Version/v1/green)
