@@ -19,7 +19,7 @@ _Use with caution. This is based on the private Notion API. We can not gurantee 
 
 🛫 **CORS Friendly** – Access your data where you need it
 
-✨ **Easy to extend Fast** – Add your own routes as per your needs.
+✨ **Easy to Extend** – Add your own routes as per your needs.
 
 ## Use Cases
 
